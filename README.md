@@ -16,7 +16,8 @@ example:
                     .forEach {println it}  // print each one
                     .flatten() //flatten into array of sinlge elements
                     .forEach {println it}
-                    .filter {it!=4}.transform {it*10} //multiply each by 10
+                    .filter {it!=4} //get rid of 4
+                    .transform {it*10} //multiply each by 10
                     .forEach {println "* " + it}
                     .forEach {if (it==70){throw new RuntimeException()}} // throw an exception if element == 70
                     .onException(RuntimeException){println it} // print out any RuntimeException, allowing pipeline to continue
