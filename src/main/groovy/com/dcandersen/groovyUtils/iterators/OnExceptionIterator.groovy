@@ -1,8 +1,5 @@
 package com.dcandersen.groovyUtils.iterators
 
-import java.awt.print.Pageable
-
-
 class OnExceptionIterator implements Iterator{
 
     Iterator innerIterator

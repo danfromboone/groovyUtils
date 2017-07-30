@@ -1,6 +1,5 @@
 package com.dcandersen.groovyUtils.iterators
 
-
 class IgnoreErrorIterator implements Iterator{
 
     Iterator innerIterator

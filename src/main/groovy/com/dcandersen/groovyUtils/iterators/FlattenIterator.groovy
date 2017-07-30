@@ -1,6 +1,5 @@
 package com.dcandersen.groovyUtils.iterators
 
-
 class FlattenIterator implements WrappingIterator{
 
     Iterator innerIterator

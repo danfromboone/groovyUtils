@@ -6,7 +6,6 @@ import org.apache.commons.collections4.iterators.TransformIterator
 import java.util.stream.Stream
 import java.util.stream.StreamSupport
 
-
 class IteratorCategory {
 
     static ForEachIterator forEach(Iterator iterator, Closure closure){

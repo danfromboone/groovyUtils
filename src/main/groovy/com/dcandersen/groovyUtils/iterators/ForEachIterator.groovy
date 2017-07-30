@@ -1,6 +1,5 @@
 package com.dcandersen.groovyUtils.iterators
 
-
 class ForEachIterator implements WrappingIterator{
 
     Iterator innerIterator

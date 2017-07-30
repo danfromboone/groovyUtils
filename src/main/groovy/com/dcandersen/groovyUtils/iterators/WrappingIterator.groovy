@@ -1,10 +1,7 @@
 package com.dcandersen.groovyUtils.iterators;
 
-import java.util.Iterator;
+interface WrappingIterator extends Iterator{
 
-
-public interface WrappingIterator extends Iterator{
-
-    void setInnerIterator(Iterator iterator);
+    void setInnerIterator(Iterator iterator)
 
 }
