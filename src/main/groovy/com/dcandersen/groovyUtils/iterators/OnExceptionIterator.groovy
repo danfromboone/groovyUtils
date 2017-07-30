@@ -1,15 +1,15 @@
 package com.dcandersen.groovyUtils.iterators
 
-class OnExceptionIterator implements Iterator{
+class OnExceptionIterator implements Iterator {
 
     Iterator innerIterator
     Class exceptionClass
     Closure closure
 
-    OnExceptionIterator(Iterator innerIterator,Class exceptionClass, Closure closure){
-        this.innerIterator=innerIterator
-        this.exceptionClass=exceptionClass
-        this.closure=closure
+    OnExceptionIterator(Iterator innerIterator, Class exceptionClass, Closure closure) {
+        this.innerIterator = innerIterator
+        this.exceptionClass = exceptionClass
+        this.closure = closure
     }
 
     @Override
@@ -20,15 +20,15 @@ class OnExceptionIterator implements Iterator{
     @Override
     Object next() {
 
-        try{
+        try {
             innerIterator.next()
-        }catch (NoSuchElementException noSuchElementException){
+        } catch (NoSuchElementException noSuchElementException) {
             //do nothing
-        }catch (Throwable t){
+        } catch (Throwable t) {
 
-            if (t in exceptionClass){
+            if (t in exceptionClass) {
                 closure(t)
-            }else{
+            } else {
                 throw t
             }
 

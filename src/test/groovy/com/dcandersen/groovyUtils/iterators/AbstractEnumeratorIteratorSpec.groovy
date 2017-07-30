@@ -4,11 +4,11 @@ import spock.lang.Specification;
 
 public class AbstractEnumeratorIteratorSpec extends Specification {
 
-    def "works on elements"(){
+    def "works on elements"() {
         setup:
         AbstractImplementsHasNextIterator abstractEnumeratorIterator = new AbstractImplementsHasNextIterator() {
 
-            Iterator i = [1,2,3,4,5].iterator()
+            Iterator i = [1, 2, 3, 4, 5].iterator()
 
             @Override
             Object fetchNext() {
@@ -21,14 +21,13 @@ public class AbstractEnumeratorIteratorSpec extends Specification {
 
 
         then:
-        collectedNumbers == [1,2,3,4,5]
-
+        collectedNumbers == [1, 2, 3, 4, 5]
 
 
     }
 
 
-    def "works on empty iterator"(){
+    def "works on empty iterator"() {
         setup:
 
         AbstractImplementsHasNextIterator abstractEnumeratorIterator = new AbstractImplementsHasNextIterator() {

@@ -1,9 +1,9 @@
 package com.dcandersen.groovyUtils.iterators
 
-class CountingIterator implements WrappingIterator{
+class CountingIterator implements WrappingIterator {
 
-    CountingIterator(Iterator innerIterator){
-        this.innerIterator=innerIterator
+    CountingIterator(Iterator innerIterator) {
+        this.innerIterator = innerIterator
     }
 
     Iterator innerIterator

@@ -1,13 +1,13 @@
 package com.dcandersen.groovyUtils.iterators
 
-class ForEachIterator implements WrappingIterator{
+class ForEachIterator implements WrappingIterator {
 
     Iterator innerIterator
     Closure closure
 
-    ForEachIterator(Iterator innerIterator = null,Closure closure){
-        this.innerIterator=innerIterator
-        this.closure=closure
+    ForEachIterator(Iterator innerIterator = null, Closure closure) {
+        this.innerIterator = innerIterator
+        this.closure = closure
     }
 
     @Override

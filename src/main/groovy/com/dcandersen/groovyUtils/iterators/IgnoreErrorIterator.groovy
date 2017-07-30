@@ -1,11 +1,11 @@
 package com.dcandersen.groovyUtils.iterators
 
-class IgnoreErrorIterator implements Iterator{
+class IgnoreErrorIterator implements Iterator {
 
     Iterator innerIterator
 
-    IgnoreErrorIterator(Iterator innerIterator){
-        this.innerIterator=innerIterator
+    IgnoreErrorIterator(Iterator innerIterator) {
+        this.innerIterator = innerIterator
     }
 
     @Override
@@ -15,11 +15,11 @@ class IgnoreErrorIterator implements Iterator{
 
     @Override
     Object next() {
-        try{
+        try {
             innerIterator.next()
-        }catch (NoSuchElementException noSuchElementException){
+        } catch (NoSuchElementException noSuchElementException) {
             //do nothing
-        }catch (Exception e){
+        } catch (Exception e) {
             println "Exception: e"
             next()
         }

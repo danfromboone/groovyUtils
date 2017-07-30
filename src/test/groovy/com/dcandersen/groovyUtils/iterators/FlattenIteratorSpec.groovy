@@ -6,10 +6,10 @@ import spock.lang.Specification
 @ToString
 class FlattenIteratorSpec extends Specification {
 
-    def "it works"(){
+    def "it works"() {
         setup:
 
-        Iterator innterIterator = [[1,2,3,4],[5,6,7,8],[9,10,11]].iterator()
+        Iterator innterIterator = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11]].iterator()
 
         FlattenIterator flattenIterator = new FlattenIterator(innterIterator)
 
@@ -18,7 +18,7 @@ class FlattenIteratorSpec extends Specification {
 
         then:
 
-        collectedItems == [1,2,3,4,5,6,7,8,9,10,11]
+        collectedItems == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
     }
 

@@ -1,6 +1,6 @@
 package com.dcandersen.groovyUtils.iterators
 
-class CollectingIterator implements WrappingIterator{
+class CollectingIterator implements WrappingIterator {
 
     List collectedList = []
     Iterator innerIterator

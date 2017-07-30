@@ -7,29 +7,33 @@ import spock.lang.Specification;
 
  */
 
-public class ChainingSpec extends Specification{
+public class ChainingSpec extends Specification {
 
-    def "does the right thing"(){
+    def "does the right thing"() {
 
         setup:
 
-        use(IteratorCategory){
+        use(IteratorCategory) {
 
-            def array = [[1,2,3],[4,5,6],[7,8,9]].iterator()
-                    .forEach {println it}
+            def array = [[1, 2, 3], [4, 5, 6], [7, 8, 9]].iterator()
+                    .forEach { println it }
                     .flatten()
-                    .forEach {println it}
-                    .filter {it!=4}.transform {it*10}
-                    .forEach {println "* " + it}
-                    .forEach {if (it==70){throw new RuntimeException()}}
-                    .onException(RuntimeException){println it}
+                    .forEach { println it }
+                    .filter { it != 4 }.transform { it * 10 }
+                    .forEach { println "* " + it }
+                    .forEach {
+                if (it == 70) {
+                    throw new RuntimeException()
+                }
+            }
+                    .onException(RuntimeException) { println it }
                     .collect()
 
             println array
 
         }
 
-        expect:true
+        expect: true
 
     }
 

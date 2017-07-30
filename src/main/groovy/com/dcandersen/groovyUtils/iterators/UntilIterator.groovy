@@ -2,32 +2,32 @@ package com.dcandersen.groovyUtils.iterators
 
 import org.apache.commons.collections4.iterators.PeekingIterator
 
-class UntilIterator implements Iterator{
+class UntilIterator implements Iterator {
 
     PeekingIterator peekingIterator
     Closure closure
 
 
-    UntilIterator(Iterator innerIterator, Closure closure){
+    UntilIterator(Iterator innerIterator, Closure closure) {
         this.peekingIterator = new PeekingIterator(innerIterator)
-        this.closure=closure
+        this.closure = closure
     }
 
     @Override
     boolean hasNext() {
         Object next
 
-        try{
+        try {
             next = peekingIterator.peek()
-        }catch(NoSuchElementException e){
+        } catch (NoSuchElementException e) {
             return false
         }
 
         boolean isOk = closure(next)
 
-        if (isOk){
+        if (isOk) {
             return false
-        }else{
+        } else {
             return true
         }
 
@@ -35,8 +35,8 @@ class UntilIterator implements Iterator{
 
     @Override
     Object next() {
-       if (hasNext()){
-           return peekingIterator.next()
-       }
+        if (hasNext()) {
+            return peekingIterator.next()
+        }
     }
 }
