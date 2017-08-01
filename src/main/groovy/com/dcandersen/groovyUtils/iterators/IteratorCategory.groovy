@@ -28,6 +28,11 @@ class IteratorCategory {
         return new OnExceptionIterator(iterator, exceptionClass, closure)
     }
 
+
+    static TeeIterator tee(Iterator innerIterator,int threads, Closure closure){
+        new TeeIterator(innerIterator,threads,closure)
+    }
+
     static Iterable toIterable(Iterator iterator) {
         new Iterable() {
             @Override
