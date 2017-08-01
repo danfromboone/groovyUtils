@@ -43,7 +43,6 @@ class TeeIterator implements Iterator{
         }
 
 
-        closure.curry(o)
 
         threadPool.execute(runnable)
 
