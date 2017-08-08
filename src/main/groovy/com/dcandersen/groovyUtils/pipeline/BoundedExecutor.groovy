@@ -5,11 +5,20 @@ import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import java.util.concurrent.RejectedExecutionException
 import java.util.concurrent.Semaphore
+import java.util.concurrent.ThreadFactory
+import java.util.concurrent.ThreadPoolExecutor
 import java.util.concurrent.TimeUnit
+
+//delete this
 
 public class BoundedExecutor {
     private final ExecutorService exec = Executors.newCachedThreadPool();
     private final Semaphore semaphore;
+
+    ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor()
+
+//   ThreadFactory threadFactory = new Th
+//    eadFactoryBuilder()
 
     Closure closure //closure
 
@@ -27,8 +36,16 @@ public class BoundedExecutor {
             exec.execute(new Runnable() {
                 public void run() {
                     try {
-                        def nextValue = closure(o)
-                        if (nextStage) nextStage.submit(nextValue)
+                        if (o == null) {
+
+                            if (nextStage) nextStage.submit(null)
+                            println 'Shutting down'
+                            exec.shutdown()
+                        }else{
+                            Object nextValue = closure(o)
+                            if (nextStage) nextStage.submit(nextValue)
+                        }
+
                     } finally {
                         semaphore.release();
                     }
@@ -61,6 +78,10 @@ public class BoundedExecutor {
 
     public shutdown(){
         exec.shutdown()
+        exec.awaitTermination(1,TimeUnit.DAYS)
+    }
+
+    public awaitTermintation(){
         exec.awaitTermination(1,TimeUnit.DAYS)
     }
 }
