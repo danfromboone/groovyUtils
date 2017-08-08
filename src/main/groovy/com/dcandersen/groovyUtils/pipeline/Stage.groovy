@@ -68,14 +68,20 @@ class Stage {
     }
 
 
-    void printStatus(){
-        println "$name ${executorService.activeCount} ${executorService.queue.size()} ${executorService.completedTaskCount} ${executorService.poolSize}"
-//        println "$name activeCount=${executorService.activeCount}"
-//        println "$name queueSize=${executorService.queue.size()}"
-//        println "$name completedCount=${executorService.completedTaskCount}"
-//        println "$name poolSize=${executorService.poolSize}"
+    Map status(){
+        [
+                name:name,
+                completedTaskCount:executorService.completedTaskCount,
+                taskCount:executorService.taskCount,
+                queueSize:executorService.queue.size(),
+                activeCount:executorService.activeCount,
+                poolSize:executorService.poolSize,
+                largestPoolSize:executorService.largestPoolSize
 
+        ]
     }
+
+
 
 
 }

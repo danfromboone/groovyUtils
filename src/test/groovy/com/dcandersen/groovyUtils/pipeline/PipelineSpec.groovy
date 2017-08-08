@@ -61,9 +61,9 @@ class PipelineSpec extends Specification {
         pipeline.stages[0].next(null)
 
 
-       while(pipeline.stages.any{it.isActive()}) {
-            pipeline.stages.each{it.printStatus()}
-            println ''
+       while(pipeline.isActive()) {
+           println pipeline.status()// pipeline.stages.each{it.printStatus()}
+           // println ''
             sleep 100
         }
 

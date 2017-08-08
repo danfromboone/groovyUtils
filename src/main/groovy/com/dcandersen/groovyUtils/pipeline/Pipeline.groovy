@@ -53,4 +53,10 @@ class Pipeline {
 
     }
 
+    List status(){
+        stages.collect{
+            it.status()
+        }
+    }
+
 }
