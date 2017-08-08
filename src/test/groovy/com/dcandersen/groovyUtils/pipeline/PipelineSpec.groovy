@@ -69,7 +69,7 @@ class PipelineSpec extends Specification {
 
 
         //sleep 10000
-        pipeline.waitToComplete()
+        pipeline.shutdown()
 
         long endTime = System.currentTimeMillis()
 

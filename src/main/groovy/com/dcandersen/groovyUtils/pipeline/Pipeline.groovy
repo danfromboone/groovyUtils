@@ -41,7 +41,11 @@ class Pipeline {
 
     }
 
-    void waitToComplete(){
+
+    boolean isActive(){
+        stages.any{it.isActive()}
+    }
+    void shutdown(){
 
         stages.each{
             it.shutdown()
