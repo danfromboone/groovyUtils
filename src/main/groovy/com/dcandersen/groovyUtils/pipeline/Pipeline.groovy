@@ -23,9 +23,9 @@ class Pipeline {
         this
     }
 
-    Pipeline stage(int maximumPoolSize,int queueSize, Processor processor){
+    Pipeline stage(String name, int threadPoolSize,Processor processor){
 
-        Stage stage = new Stage(maximumPoolSize,queueSize,processor)
+        Stage stage = new Stage(name,threadPoolSize,processor)
         this.stage(stage)
     }
 
